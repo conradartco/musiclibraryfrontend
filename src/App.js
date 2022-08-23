@@ -11,13 +11,13 @@ function App() {
 },[])
 
   async function getAllSongs(){
-    let response = await axios.get('http://127.0.0.1:8000/api/music/');
+    let response = await axios.get(`${URL_HOST}/api/music/`);
     setSongs(response.data);
   }
   
   async function AddNewMusic(newSong){
 
-    let response = await axios.post('http://127.0.0.1:8000/api/music/',newSong);
+    let response = await axios.post(`${URL_HOST}/api/music/`,newSong);
     if (response.status === 201) {
       getAllSongs()
     }
